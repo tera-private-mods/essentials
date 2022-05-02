@@ -13,8 +13,7 @@ module.exports = function Essentials(mod) {
 		interval = null,
 		enabled = true,
 		counter = 0,
-		resetcount = null,
-		niceName = mod.proxyAuthor !== 'caali' ? '[Essentials] ' : ''
+		resetcount = null
 
 	// ############# //
 	// ### Hooks ### //
@@ -42,7 +41,7 @@ module.exports = function Essentials(mod) {
 
 	if(mod.settings.log) {
 		mod.hook('C_USE_ITEM', 3, event => {
-			mod.command.message(niceName + 'Used item ID: ' + event.id)
+			mod.command.message('Used item ID: ' + event.id)
 		})
 	}
 
@@ -91,7 +90,7 @@ module.exports = function Essentials(mod) {
 		if(counter > 5) {
 			let missing = (item == mod.settings.nostrum) ? 'Nostrums' : 'Crystalbinds'
 			enabled = false
-			mod.command.message(niceName + 'You ran out of ' + missing + ' (ID: ' + item + '). Essentials has been disabled. Please restock and enable the module again by typing "ess" in this chat.')
+			mod.command.message('You ran out of ' + missing + ' (ID: ' + item + '). Essentials has been disabled. Please restock and enable the module again by typing "ess" in this chat.')
 			console.log('[Essentials] You ran out of ' + missing + ' (ID: ' + item + '). Essentials has been disabled. Please restock and enable the module again by typing "ess" in proxy chat.')
 			return
 		}
@@ -131,12 +130,12 @@ module.exports = function Essentials(mod) {
 	mod.command.add(['essentials', 'ess'], (cmd) => {
 		if(cmd == null) {
 			enabled = !enabled
-			mod.command.message(niceName + 'Essentials ' + (enabled ? '<font color="#56B4E9">enabled</font>' : '<font color="#E69F00">disabled</font>'))
+			mod.command.message('Essentials ' + (enabled ? '<font color="#56B4E9">enabled</font>' : '<font color="#E69F00">disabled</font>'))
 			console.log('Essentials ' + (enabled ? 'enabled' : 'disabled'))
 		}
 		else if(cmd == "dungeon" || cmd == "dungeons" || cmd == "dung") {
 			mod.settings.dungeonOnly = !mod.settings.dungeonOnly
-			mod.command.message(niceName + 'Items will be used ' + (mod.settings.dungeonOnly ? 'everywhere' : 'in dungeons only'))
+			mod.command.message('Items will be used ' + (mod.settings.dungeonOnly ? 'everywhere' : 'in dungeons only'))
 		}
 		else mod.command.message('Commands:\n'
 			+ ' "ess" (enable/disable Essentials),\n'

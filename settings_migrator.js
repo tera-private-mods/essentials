@@ -2,10 +2,10 @@
 
 const DefaultSettings = {
 	"useNostrum": true,
-	"useCCB": true,
-	"nostrumTime": 5,
-	"CCBTime": 10,
-	"dungeonOnly": false,
+	"useCCB": false,
+	"nostrumTime": 2,
+	"CCBTime": 5,
+	"dungeonOnly": true,
 	"log": false,
 	"nostrum": 200999,
 	"ccb": 70000
